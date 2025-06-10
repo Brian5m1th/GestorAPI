@@ -4,6 +4,8 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/v1/funcionario")
 public interface FucionarioAPI {
@@ -12,5 +14,7 @@ public interface FucionarioAPI {
     @ResponseStatus(code = HttpStatus.CREATED)
     FuncionarioResponse postFuncionario(@Valid @RequestBody FuncionarioRequest fucionarioRequest);
 
-
+    @GetMapping
+    @ResponseStatus(code = HttpStatus.OK)
+    List<FuncionarioListResponse> getBeneficiario();
 }
