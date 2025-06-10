@@ -34,9 +34,16 @@ public class FuncionarioInfraRepository implements FuncionarioRepository {
     public Funcionario findById(UUID idFuncionario) {
         log.info("[start] FuncionarioInfraRepository - findById");
         Funcionario funcionario = funcionarioSpringDataJpaRepository.findByIdFuncionario(idFuncionario)
-                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,"Cliente não encontrado"  ));
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
         log.info("[finish] FuncionarioInfraRepository - findById");
         return funcionario;
+    }
+
+    @Override
+    public void delete(Funcionario funcionario) {
+        log.info("[start] FuncionarioInfraRepository - delete");
+        funcionarioSpringDataJpaRepository.delete(funcionario);
+        log.info("[finish] FuncionarioInfraRepository - delete");
     }
 
 }
