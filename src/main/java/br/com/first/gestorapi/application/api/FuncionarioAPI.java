@@ -22,4 +22,9 @@ public interface FuncionarioAPI {
     @GetMapping("/{idFuncionario}")
     @ResponseStatus(code = HttpStatus.OK)
     FuncionarioDetalhadoResponse getFuncionarioPorId(@PathVariable @Valid UUID idFuncionario);
+
+    @PatchMapping("/{idFuncionario}")
+    @ResponseStatus(code = HttpStatus.OK)
+    void patchAlteraFuncionario(@PathVariable UUID idFuncionario, @Valid @RequestBody FuncionarioAlteracaoRequest funcionarioAlteracaoRequest);
+
 }

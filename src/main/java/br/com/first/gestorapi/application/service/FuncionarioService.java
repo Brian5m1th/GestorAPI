@@ -1,5 +1,6 @@
 package br.com.first.gestorapi.application.service;
 
+import br.com.first.gestorapi.application.api.FuncionarioAlteracaoRequest;
 import br.com.first.gestorapi.application.api.FuncionarioListResponse;
 import br.com.first.gestorapi.application.api.FuncionarioRequest;
 import br.com.first.gestorapi.application.api.FuncionarioResponse;
@@ -15,4 +16,6 @@ public interface FuncionarioService {
     List<FuncionarioListResponse> buscarTodosFuncionarios();
 
     Funcionario buscarBeneficiarioPorId(UUID idFuncionario);
+
+    void patchAlteraFuncionario(UUID idFuncionario, FuncionarioAlteracaoRequest funcionarioAlteracaoRequest);
 }

@@ -2,6 +2,7 @@ package br.com.first.gestorapi.domain;
 
 import br.com.first.gestorapi.application.api.FuncionarioRequest;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.UUID;
@@ -17,10 +18,15 @@ public class Funcionario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "UUID", name = "idFucionario", updatable = false, unique = true, nullable = false)
     private UUID idFuncionario;
+    @NotBlank
     private String nome;
+    @NotBlank
     private String designacao;
+    @NotBlank
     private String salario;
+    @NotBlank
     private String telefone;
+    @NotBlank
     private String endereco;
 
 
