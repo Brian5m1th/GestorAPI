@@ -1,5 +1,6 @@
 package br.com.first.gestorapi.domain;
 
+import br.com.first.gestorapi.application.api.FuncionarioAlteracaoRequest;
 import br.com.first.gestorapi.application.api.FuncionarioRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -34,6 +35,13 @@ public class Funcionario {
         this.nome = Request.getNome();
         this.designacao = Request.getDesignacao();
         this.salario = Request.getSalario();
+        this.telefone = Request.getTelefone();
+        this.endereco = Request.getEndereco();
+    }
+
+    public void altera(FuncionarioAlteracaoRequest Request) {
+        this.nome = Request.getNome();
+        this.designacao = Request.getDesignacao();
         this.telefone = Request.getTelefone();
         this.endereco = Request.getEndereco();
     }

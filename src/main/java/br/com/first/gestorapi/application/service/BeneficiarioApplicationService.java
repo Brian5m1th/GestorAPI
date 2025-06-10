@@ -1,5 +1,6 @@
 package br.com.first.gestorapi.application.service;
 
+import br.com.first.gestorapi.application.api.FuncionarioAlteracaoRequest;
 import br.com.first.gestorapi.application.api.FuncionarioListResponse;
 import br.com.first.gestorapi.application.api.FuncionarioRequest;
 import br.com.first.gestorapi.application.api.FuncionarioResponse;
@@ -42,6 +43,15 @@ public class BeneficiarioApplicationService implements FuncionarioService {
         Funcionario funcionarioPorId = funcionarioRepository.findById(idFuncionario);
         log.info("[finish] BeneficiarioApplicationService - buscarBeneficiarioPorId");
         return funcionarioPorId;
+    }
+
+    @Override
+    public void patchAlteraFuncionario(UUID idFuncionario, FuncionarioAlteracaoRequest funcionarioAlteracaoRequest) {
+        log.info("[start] BeneficiarioApplicationService - patchAlteraFuncionario");
+        Funcionario funcionario = funcionarioRepository.findById(idFuncionario);
+        funcionario.altera(funcionarioAlteracaoRequest);
+        funcionarioRepository.salva(funcionario);
+        log.info("[finish] BeneficiarioApplicationService - patchAlteraFuncionario");
     }
 
 }
