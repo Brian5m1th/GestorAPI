@@ -18,4 +18,6 @@ public interface FuncionarioService {
     Funcionario buscarBeneficiarioPorId(UUID idFuncionario);
 
     void patchAlteraFuncionario(UUID idFuncionario, FuncionarioAlteracaoRequest funcionarioAlteracaoRequest);
+
+    void deleta(UUID idFuncionario);
 }
