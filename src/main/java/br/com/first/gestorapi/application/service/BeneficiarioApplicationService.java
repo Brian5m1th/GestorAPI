@@ -54,4 +54,12 @@ public class BeneficiarioApplicationService implements FuncionarioService {
         log.info("[finish] BeneficiarioApplicationService - patchAlteraFuncionario");
     }
 
+    @Override
+    public void deleta(UUID idFuncionario) {
+        log.info("[start] BeneficiarioApplicationService - deleta");
+        Funcionario funcionario =  funcionarioRepository.findById(idFuncionario);
+        funcionarioRepository.delete(funcionario);
+        log.info("[finish] BeneficiarioApplicationService - deleta");
+    }
+
 }
