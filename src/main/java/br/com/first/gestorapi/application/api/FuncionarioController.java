@@ -5,10 +5,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @Log4j2
 @RequiredArgsConstructor
-public class FuncionarioController implements FucionarioAPI {
+public class FuncionarioController implements FuncionarioAPI {
     private final FuncionarioService funcionarioService;
 
     @Override
@@ -19,4 +21,13 @@ public class FuncionarioController implements FucionarioAPI {
         return criaFuncionario;
     }
 
-}
+    @Override
+    public List<FuncionarioListResponse> getFuncionario() {
+        log.info("[start] FuncionarioController - getFuncionario");
+        List<FuncionarioListResponse> beneficiarios = funcionarioService.buscarTodosBeneficiarios();
+        log.info("[finish] FuncionarioController - getFuncionario");
+        return beneficiarios;
+    }
+
+    }
+

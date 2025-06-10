@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/funcionario")
-public interface FucionarioAPI {
+public interface FuncionarioAPI {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
@@ -16,5 +16,5 @@ public interface FucionarioAPI {
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    List<FuncionarioListResponse> getBeneficiario();
+    List<FuncionarioListResponse> getFuncionario();
 }
