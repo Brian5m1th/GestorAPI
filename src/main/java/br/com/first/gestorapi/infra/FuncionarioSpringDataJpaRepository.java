@@ -1,4 +1,4 @@
-package br.com.first.gestorapi.application.infra;
+package br.com.first.gestorapi.infra;
 
 import br.com.first.gestorapi.domain.Funcionario;
 import org.springframework.data.jpa.repository.JpaRepository;
