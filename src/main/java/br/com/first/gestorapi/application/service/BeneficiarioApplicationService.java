@@ -9,6 +9,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Log4j2
@@ -33,6 +34,14 @@ public class BeneficiarioApplicationService implements FuncionarioService {
         List<Funcionario> beneficiarioList = funcionarioRepository.findByAll();
         log.info("[finish] BeneficiarioApplicationService - buscarTodosFuncionarios");
         return FuncionarioListResponse.converte(beneficiarioList);
+    }
+
+    @Override
+    public Funcionario buscarBeneficiarioPorId(UUID idFuncionario) {
+        log.info("[start] BeneficiarioApplicationService - buscarBeneficiarioPorId");
+        Funcionario funcionarioPorId = funcionarioRepository.findById(idFuncionario);
+        log.info("[finish] BeneficiarioApplicationService - buscarBeneficiarioPorId");
+        return funcionarioPorId;
     }
 
 }
