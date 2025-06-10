@@ -22,12 +22,12 @@ public class FuncionarioController implements FuncionarioAPI {
     }
 
     @Override
-    public List<FuncionarioListResponse> getFuncionario() {
+    public List<FuncionarioListResponse> getFuncionarios() {
         log.info("[start] FuncionarioController - getFuncionario");
-        List<FuncionarioListResponse> beneficiarios = funcionarioService.buscarTodosBeneficiarios();
+        List<FuncionarioListResponse> beneficiarios = funcionarioService.buscarTodosFuncionarios();
         log.info("[finish] FuncionarioController - getFuncionario");
         return beneficiarios;
     }
 
-    }
+}
 

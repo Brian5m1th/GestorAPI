@@ -1,11 +1,14 @@
 package br.com.first.gestorapi.application.service;
 
+import br.com.first.gestorapi.application.api.FuncionarioListResponse;
 import br.com.first.gestorapi.application.api.FuncionarioRequest;
 import br.com.first.gestorapi.application.api.FuncionarioResponse;
 import br.com.first.gestorapi.domain.Funcionario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Log4j2
@@ -22,6 +25,14 @@ public class BeneficiarioApplicationService implements FuncionarioService {
         return FuncionarioResponse.builder()
                 .idFuncionario(funcionario.getIdFuncionario())
                 .build();
+    }
+
+    @Override
+    public List<FuncionarioListResponse> buscarTodosFuncionarios() {
+        log.info("[start] BeneficiarioApplicationService - buscarTodosFuncionarios");
+        List<Funcionario> beneficiarioList = funcionarioRepository.findByAll();
+        log.info("[finish] BeneficiarioApplicationService - buscarTodosFuncionarios");
+        return FuncionarioListResponse.converte(beneficiarioList);
     }
 
 }

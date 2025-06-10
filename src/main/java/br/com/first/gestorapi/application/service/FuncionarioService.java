@@ -10,4 +10,5 @@ public interface FuncionarioService {
 
     FuncionarioResponse criaFuncionario(FuncionarioRequest funcionarioRequest);
 
+    List<FuncionarioListResponse> buscarTodosFuncionarios();
 }
