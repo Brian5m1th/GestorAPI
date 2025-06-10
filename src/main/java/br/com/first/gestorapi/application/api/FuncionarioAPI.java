@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/funcionario")
@@ -17,4 +18,8 @@ public interface FuncionarioAPI {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<FuncionarioListResponse> getFuncionarios();
+
+    @GetMapping("/{idFuncionario}")
+    @ResponseStatus(code = HttpStatus.OK)
+    FuncionarioDetalhadoResponse getFuncionarioPorId(@PathVariable @Valid UUID idFuncionario);
 }
