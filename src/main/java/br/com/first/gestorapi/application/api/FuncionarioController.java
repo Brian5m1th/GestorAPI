@@ -2,6 +2,7 @@ package br.com.first.gestorapi.application.api;
 
 import br.com.first.gestorapi.application.service.FuncionarioService;
 import br.com.first.gestorapi.domain.Funcionario;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,7 @@ public class FuncionarioController implements FuncionarioAPI {
     private final FuncionarioService funcionarioService;
 
     @Override
-    public FuncionarioResponse postFuncionario(FuncionarioRequest fucionarioRequest) {
+    public FuncionarioResponse postFuncionario(@Valid FuncionarioRequest fucionarioRequest) {
         log.info("[start] FuncionarioController - postFuncionario");
         FuncionarioResponse criaFuncionario = funcionarioService.criaFuncionario(fucionarioRequest);
         log.info("[finish] FuncionarioController - postFuncionario");
@@ -40,7 +41,7 @@ public class FuncionarioController implements FuncionarioAPI {
     }
 
     @Override
-    public void patchAlteraFuncionario(UUID idFuncionario, FuncionarioAlteracaoRequest funcionarioAlteracaoRequest) {
+    public void patchAlteraFuncionario(UUID idFuncionario,@Valid FuncionarioAlteracaoRequest funcionarioAlteracaoRequest) {
         log.info("[start] FuncionarioController - patchAlteraFuncionario");
         funcionarioService.patchAlteraFuncionario(idFuncionario, funcionarioAlteracaoRequest);
         log.info("[finish] FuncionarioController - patchAlteraFuncionario");
