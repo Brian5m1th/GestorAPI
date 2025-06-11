@@ -14,7 +14,6 @@ public class FuncionarioListResponse {
     private UUID idFuncionario;
     private String nome;
     private String telefone;
-    private Funcionario funcionario;
     private String designacao;
     private String salario;
     private String endereco;
